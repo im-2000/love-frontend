@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 import HeroBanner from "./components/HeroBanner";
+import HomePage from "./pages/Home";
 
 const Home = () => (
   <HeroBanner>
@@ -38,7 +39,7 @@ function App() {
       <MessageBox />
       {isLoading ? <Loading /> : null}
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<HomePage />} />
         <Route path="/other" element={<Other />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
