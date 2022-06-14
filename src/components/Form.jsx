@@ -1,51 +1,47 @@
 import { useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { newActivityCreated } from "../store/user/actions";
-// import Modal from "@mui/material/Modal";
+import { useDispatch } from "react-redux";
 import * as React from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import { Grid } from "@mui/material";
+import { newProfileCreated } from "../store/people/actions";
 
 const Form = (props) => {
   const genders = [
-    { value: "male", label: "male" },
-    { value: "female", label: "female" },
+    { value: "Male", label: "Male" },
+    { value: "Female", label: "Female" },
   ];
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
   const [about, setAbout] = useState("");
-  const [languages, setLanguages] = useState("");
+  const [language, setLanguage] = useState("");
   const [location, setLocation] = useState("");
-  const [image, setImage] = useState("");
+  const [imageUrl, setImage] = useState("");
   const [age, setAge] = useState(0);
-
-  //   console.log(moment().format("YYYY-MM-DD"));
-  //
 
   const submit = (event) => {
     // to make sure that the form does not redirect (which is normal browser behavior)
     event.preventDefault();
-    // const newProfile = {
-    //   nickname,
-    //   gender,
-    //   description,
-    //   languages,
-    //   location,
-    //   image,
-    //   age,
-    // };
+    const newProfile = {
+      name,
+      age,
+      gender,
+      imageUrl,
+      about,
+      language,
+      location,
+    };
 
-    // dispatch(newActivityCreated(newProfile));
+    dispatch(newProfileCreated(newProfile));
     setName("");
     setAbout("");
     setLocation("");
     setGender("");
     setImage("");
-    setLanguages("");
+    setLanguage("");
     setAge(0);
   };
 
@@ -81,13 +77,13 @@ const Form = (props) => {
               <img
                 alt="img"
                 src={
-                  image
-                    ? image
+                  imageUrl
+                    ? imageUrl
                     : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
                 }
                 style={{ maxWidth: 315 }}
               />
-              {image ? (
+              {imageUrl ? (
                 <div style={{ fontSize: 20 }}>Succesfully uploaded!</div>
               ) : (
                 ""
@@ -172,12 +168,13 @@ const Form = (props) => {
               fullWidth
               margin="dense"
               type="text"
-              value={languages}
-              onChange={(e) => setLanguages(e.target.value)}
+              value={language}
+              onChange={(e) => setLanguage(e.target.value)}
             ></TextField>
           </Grid>
           <Grid item xs={6}>
             <TextField
+              sx={{ paddingBottom: 7 }}
               required
               label="About"
               multiline
