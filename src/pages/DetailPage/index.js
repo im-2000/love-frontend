@@ -35,7 +35,6 @@ export default function ProfileDetails() {
       </Breadcrumbs>
       <div>
         <Paper
-          item
           xs={12}
           md={6}
           p={2}
@@ -55,8 +54,7 @@ export default function ProfileDetails() {
                   />
                 </Grid>
                 <CardContent
-                  justifyContent="flex-end"
-                  sx={{ textAlign: "left" }}
+                  sx={{ justifyContent: "flex-end", textAlign: "left" }}
                 >
                   <Typography
                     component="h2"
@@ -73,9 +71,9 @@ export default function ProfileDetails() {
                   >
                     {details.age}, {details.gender}
                   </Typography>
-                  <h7 style={{ opacity: 0.7 }}>
+                  <h6 style={{ opacity: 0.7 }}>
                     <strong>Location:</strong> {details.location}
-                  </h7>
+                  </h6>
                   <p>
                     <strong style={{ opacity: 0.7 }}>Language: </strong>
                     {details.language}

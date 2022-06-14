@@ -37,7 +37,7 @@ function App() {
       {isLoading ? <Loading /> : null}
       <Routes>
         <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/:id" element={<ProfileDetails />} />
+        <Route exact path="/profiles/:id" element={<ProfileDetails />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
