@@ -14,15 +14,11 @@ import { getUserWithStoredToken } from "./store/user/actions";
 import HeroBanner from "./components/HeroBanner";
 import HomePage from "./pages/Home";
 import ProfileDetails from "./pages/DetailPage";
+import ProfilePage from "./pages/ProfilePage";
 
 const Home = () => (
   <HeroBanner>
     <h1>Home</h1>
-  </HeroBanner>
-);
-const Other = () => (
-  <HeroBanner>
-    <h1>Other</h1>
   </HeroBanner>
 );
 
@@ -42,7 +38,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/:id" element={<ProfileDetails />} />
-        <Route path="/other" element={<Other />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
       </Routes>
