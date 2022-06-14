@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
-import Filters from "../../components/Filters";
-import UserList from "../../components/UserList";
+import Filters from "../../components/Filters/index";
+import UserList from "../../components/UserList/index";
 
 const HomePage = () => {
   return (
