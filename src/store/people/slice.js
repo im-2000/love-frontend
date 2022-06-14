@@ -11,9 +11,12 @@ export const peopleSlice = createSlice({
     setPeopleAction: (state, action) => {
       state.peopleData = action.payload;
     },
+    newProfileSlice: (state, action) => {
+      state.peopleData.push(action.payload);
+    },
   },
 });
 
-export const { setPeopleAction } = peopleSlice.actions;
+export const { setPeopleAction, newProfileSlice } = peopleSlice.actions;
 
 export default peopleSlice.reducer;
