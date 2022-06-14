@@ -13,6 +13,7 @@ import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 import HeroBanner from "./components/HeroBanner";
 import HomePage from "./pages/Home";
+import ProfileDetails from "./pages/DetailPage";
 
 const Home = () => (
   <HeroBanner>
@@ -40,6 +41,7 @@ function App() {
       {isLoading ? <Loading /> : null}
       <Routes>
         <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/:id" element={<ProfileDetails />} />
         <Route path="/other" element={<Other />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
