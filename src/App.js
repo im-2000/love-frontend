@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation />
+      <Navigation className="Navigation-container" />
       <MessageBox />
       {isLoading ? <Loading /> : null}
       <Routes>
