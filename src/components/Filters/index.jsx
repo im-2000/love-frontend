@@ -6,12 +6,13 @@ import { useState } from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
-const Filters = () => {
+const Filters = (props) => {
+  const { applyFilters, clearFilters } = props;
   const [filtersVal, setFiltersVal] = useState({
     city: "",
     age: "",
     gender: "",
-    hobby: "",
+    language: "",
   });
 
   const handleChange = (event) => {
@@ -30,9 +31,10 @@ const Filters = () => {
           label="City"
           onChange={handleChange}
         >
-          <MenuItem value={1}>Amsterdam</MenuItem>
-          <MenuItem value={2}>Rotterdam</MenuItem>
-          <MenuItem value={3}>Breda</MenuItem>
+          <MenuItem value="Amsterdam">Amsterdam</MenuItem>
+          <MenuItem value="Rotterdam">Rotterdam</MenuItem>
+          <MenuItem value="Utrecht">Utrecht</MenuItem>
+          <MenuItem value="Haarlem">Haarlem</MenuItem>
         </Select>
       </FormControl>
       <FormControl sx={{ width: 200 }} size="small">
@@ -43,9 +45,9 @@ const Filters = () => {
           label="Age"
           onChange={handleChange}
         >
-          <MenuItem value={1}>20-30</MenuItem>
-          <MenuItem value={2}>30-40</MenuItem>
-          <MenuItem value={3}>40-50</MenuItem>
+          <MenuItem value="20-30">20-30</MenuItem>
+          <MenuItem value="30-40">30-40</MenuItem>
+          <MenuItem value="40-50">40-50</MenuItem>
         </Select>
       </FormControl>
       <FormControl sx={{ width: 200 }} size="small">
@@ -56,27 +58,39 @@ const Filters = () => {
           label="Gender"
           onChange={handleChange}
         >
-          <MenuItem value={1}>Male</MenuItem>
-          <MenuItem value={2}>Female</MenuItem>
+          <MenuItem value="male">Male</MenuItem>
+          <MenuItem value="female">Female</MenuItem>
         </Select>
       </FormControl>
       <FormControl sx={{ width: 200 }} size="small">
-        <InputLabel>Hobby</InputLabel>
+        <InputLabel>Language</InputLabel>
         <Select
-          name="hobby"
-          value={filtersVal.hobby}
-          label="Hobby"
+          name="language"
+          value={filtersVal.language}
+          label="Language"
           onChange={handleChange}
         >
-          <MenuItem value={1}>Coding</MenuItem>
-          <MenuItem value={2}>Dance</MenuItem>
-          <MenuItem value={3}>Music</MenuItem>
+          <MenuItem value="Java">Java</MenuItem>
+          <MenuItem value="JavaScript">JavaScript</MenuItem>
+          <MenuItem value="Python">Python</MenuItem>
         </Select>
       </FormControl>
-      <Button size="small" variant="contained">
+      <Button
+        onClick={() => {
+          applyFilters(filtersVal);
+        }}
+        size="small"
+        variant="contained"
+      >
         Apply
       </Button>
-      <Button size="small" variant="outlined">
+      <Button
+        onClick={() => {
+          clearFilters(setFiltersVal);
+        }}
+        size="small"
+        variant="outlined"
+      >
         Clear
       </Button>
     </Stack>

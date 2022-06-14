@@ -5,27 +5,31 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Avatar } from "@mui/material";
+import { Link } from "react-router-dom";
 
-const UserCard = () => {
+const UserCard = (props) => {
+  const { name, imageUrl, id } = props.person;
   return (
     <Box mb={5} ml={3} mr={3}>
       <Card sx={{ maxWidth: 250 }}>
         <CardContent sx={{ paddingBottom: 0 }}>
           <Box display="flex" justifyContent="center">
             <Avatar
-              alt="Remy Sharp"
-              src="https://mui.com/static/images/cards/contemplative-reptile.jpg"
+              alt={name}
+              src={imageUrl}
               sx={{ width: 150, height: 150 }}
             />
           </Box>
           <Typography gutterBottom variant="h5" component="div" align="center">
-            Ross Geller
+            {name}
           </Typography>
         </CardContent>
         <CardActions sx={{ display: "flex", justifyContent: "center" }}>
-          <Button size="small" variant="contained">
-            Details
-          </Button>
+          <Link to={`/profiles/${id}`}>
+            <Button size="small" variant="contained">
+              Details
+            </Button>
+          </Link>
         </CardActions>
       </Card>
     </Box>
