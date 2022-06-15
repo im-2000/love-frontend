@@ -160,6 +160,8 @@ export const setFavorites = (profileId) => {
             text: error.response.data.message,
           })
         );
+      } else {
+        console.log(error);
       }
     }
   };
