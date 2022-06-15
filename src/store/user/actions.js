@@ -3,7 +3,12 @@ import axios from "axios";
 import { selectToken } from "./selectors";
 import { appLoading, appDoneLoading, setMessage } from "../appState/slice";
 import { showMessageWithTimeout } from "../appState/actions";
-import { loginSuccess, logOut, tokenStillValid } from "./slice";
+import {
+  loginSuccess,
+  logOut,
+  tokenStillValid,
+  toggleFavorites,
+} from "./slice";
 
 export const signUp = (name, email, password) => {
   return async (dispatch, getState) => {
@@ -113,6 +118,49 @@ export const getUserWithStoredToken = () => {
       // get rid of the token by logging out
       dispatch(logOut());
       dispatch(appDoneLoading());
+    }
+  };
+};
+
+export const setFavorites = (profileId) => {
+  return async (dispatch, getState) => {
+    try {
+      console.log("profileId", profileId);
+      const {
+        token,
+        profile: { id },
+      } = getState().user;
+      console.log("userId,profileID", id, profileId);
+      dispatch(appLoading());
+      const response = await axios.post(
+        `${apiUrl}/profiles/favorites/`,
+        { userId: id, profileId: profileId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("response", response);
+
+      dispatch(
+        showMessageWithTimeout("success", false, "Favorites Updated", 3000)
+      );
+
+      dispatch(appDoneLoading());
+      dispatch(toggleFavorites(response.data));
+      dispatch(appDoneLoading());
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data.message);
+        dispatch(
+          setMessage({
+            variant: "danger",
+            dismissable: true,
+            text: error.response.data.message,
+          })
+        );
+      }
     }
   };
 };

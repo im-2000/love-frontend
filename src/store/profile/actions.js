@@ -1,5 +1,5 @@
 import { startLoading, profileDetailsFetched } from "./slice";
-import { appDoneLoading } from "../appState/slice";
+import { appDoneLoading, appLoading } from "../appState/slice";
 import axios from "axios";
 import { apiUrl } from "../../config/constants";
 
