@@ -22,9 +22,26 @@ export const userSlice = createSlice({
     tokenStillValid: (state, action) => {
       state.profile = action.payload.user;
     },
+    toggleFavorites: (state, action) => {
+      const idToAdd = action.payload;
+      // console.log("id", idToAdd.profileId);
+      // console.log("current favorites", JSON.stringify(state.profile));
+      // console.log("idtoadd", JSON.stringify(idToAdd));
+      const newFavs = state.profile?.favorites?.some(
+        (fav) => fav.id === idToAdd.id
+      )
+        ? state.profile.favorites.filter(
+            (profileId) => profileId.id !== idToAdd.id
+          )
+        : [...state.profile.favorites, idToAdd];
+
+      console.log("new favorites", newFavs);
+      state.profile.favorites = newFavs;
+    },
   },
 });
 
-export const { loginSuccess, logOut, tokenStillValid } = userSlice.actions;
+export const { loginSuccess, logOut, tokenStillValid, toggleFavorites } =
+  userSlice.actions;
 
 export default userSlice.reducer;

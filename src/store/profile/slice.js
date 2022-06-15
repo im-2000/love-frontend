@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { allProfiles: [], profileDetails: null, loading: true };
+const initialState = {
+  allProfiles: [],
+  profileDetails: null,
+  loading: true,
+  favorite: [],
+};
 
 export const profileSlice = createSlice({
   name: "profile",
@@ -15,9 +20,13 @@ export const profileSlice = createSlice({
       console.log("current favorites", JSON.stringify(state.profileDetails));
       state.loading = false;
     },
+    newFavoritePostSuccess: (state, action) => {
+      state.peopleData.push(action.payload);
+    },
   },
 });
 
-export const { profileDetailsFetched, startLoading } = profileSlice.actions;
+export const { profileDetailsFetched, startLoading, newFavoritePostSuccess } =
+  profileSlice.actions;
 
 export default profileSlice.reducer;

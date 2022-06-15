@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { setFavorites } from "../../store/user/actions";
 import { fetchProfileById } from "../../store/profile/actions";
+import { selectUser } from "../../store/user/selectors";
 import {
   getLoading,
   selectProfileDetails,
@@ -12,11 +14,13 @@ import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
 import { Paper, Card, Grid, CardContent, Box } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
+import { useNavigate } from "react-router-dom";
 
 export default function ProfileDetails() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const details = useSelector(selectProfileDetails);
+  const user = useSelector(selectUser);
 
   //const { userId } = user?.id;
 
@@ -94,8 +98,11 @@ export default function ProfileDetails() {
                     variant="contained"
                     color="primary"
                     sx={{ display: { sm: "block" }, m: 3 }}
+                    onClick={() => dispatch(setFavorites(details.id))}
                   >
-                    Add to Favorites
+                    {user?.favorites?.some((u) => u.id === details.id)
+                      ? "Delete from favorites"
+                      : "Add to favorites"}{" "}
                   </Button>
                 </CardContent>
               </Card>
