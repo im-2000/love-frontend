@@ -1,10 +1,15 @@
+import { Button } from "@mui/material";
 import React from "react";
-import NavbarItem from "./NavbarItem";
+import { NavLink } from "react-router-dom";
 
 export default function LoggedOut() {
   return (
     <>
-      <NavbarItem path="/login" linkText="Login" />
+      <NavLink style={{ color: "white", textDecoration: "none" }} to="/login">
+        <Button variant="outlined" color="inherit">
+          Login
+        </Button>
+      </NavLink>
     </>
   );
 }
