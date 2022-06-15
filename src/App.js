@@ -41,7 +41,7 @@ function App() {
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/join" element={<Join />} />
         <Route exact path="/chat" element={<Chat />} />
-        <Route exact path="/:id" element={<ProfileDetails />} />
+        <Route exact path="/profiles/:id" element={<ProfileDetails />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
