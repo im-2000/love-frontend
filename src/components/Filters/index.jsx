@@ -23,7 +23,7 @@ const Filters = (props) => {
 
   return (
     <Stack direction="row" spacing={2} mb={5}>
-      <FormControl sx={{ width: 200 }} size="small">
+      <FormControl sx={{ width: 200, backgroundColor: "WHITE" }} size="small">
         <InputLabel>City</InputLabel>
         <Select
           name="city"
@@ -37,7 +37,7 @@ const Filters = (props) => {
           <MenuItem value="Haarlem">Haarlem</MenuItem>
         </Select>
       </FormControl>
-      <FormControl sx={{ width: 200 }} size="small">
+      <FormControl sx={{ width: 200, backgroundColor: "WHITE" }} size="small">
         <InputLabel>Age</InputLabel>
         <Select
           name="age"
@@ -50,7 +50,7 @@ const Filters = (props) => {
           <MenuItem value="40-50">40-50</MenuItem>
         </Select>
       </FormControl>
-      <FormControl sx={{ width: 200 }} size="small">
+      <FormControl sx={{ width: 200, backgroundColor: "WHITE" }} size="small">
         <InputLabel>Gender</InputLabel>
         <Select
           name="gender"
@@ -62,7 +62,7 @@ const Filters = (props) => {
           <MenuItem value="female">Female</MenuItem>
         </Select>
       </FormControl>
-      <FormControl sx={{ width: 200 }} size="small">
+      <FormControl sx={{ width: 200, backgroundColor: "WHITE" }} size="small">
         <InputLabel>Language</InputLabel>
         <Select
           name="language"
@@ -89,7 +89,7 @@ const Filters = (props) => {
           clearFilters(setFiltersVal);
         }}
         size="small"
-        variant="outlined"
+        variant="contained"
       >
         Clear
       </Button>

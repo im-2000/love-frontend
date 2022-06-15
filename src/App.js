@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
+import background from "./image/1049239.jpeg";
 
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
@@ -33,7 +34,15 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        backgroundImage: `url(${background})`,
+        // backgroundSize: "cover",
+        backgroundRepeat: "repeat",
+        // backgroundPosition: "center",
+      }}
+    >
       <Navigation />
       <MessageBox />
       {isLoading ? <Loading /> : null}

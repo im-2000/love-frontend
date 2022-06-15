@@ -111,31 +111,34 @@ const Form = (props) => {
               required
               label="Name"
               type="text"
-              variant="outlined"
+              variant="filled"
               fullWidth
               margin="dense"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              style={{ backgroundColor: "white" }}
             ></TextField>
 
             <TextField
               required
               label="Location"
-              variant="outlined"
+              variant="filled"
               fullWidth
               margin="dense"
               type="text"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
+              style={{ backgroundColor: "white" }}
             ></TextField>
             <TextField
               required
               label="Gender"
-              variant="outlined"
+              variant="filled"
               value={gender}
               onChange={(e) => {
                 setGender(e.target.value);
               }}
+              style={{ backgroundColor: "white" }}
               select
               fullWidth
               margin="dense"
@@ -153,23 +156,25 @@ const Form = (props) => {
             <TextField
               required
               label="Age"
-              variant="outlined"
+              variant="filled"
               fullWidth
               margin="dense"
               type="number"
               value={age}
               onChange={(e) => setAge(e.target.value)}
+              style={{ backgroundColor: "white" }}
             ></TextField>
 
             <TextField
               required
               label="Language"
-              variant="outlined"
+              variant="filled"
               fullWidth
               margin="dense"
               type="text"
               value={language}
               onChange={(e) => setLanguage(e.target.value)}
+              style={{ backgroundColor: "white" }}
             ></TextField>
           </Grid>
           <Grid item xs={6}>
@@ -179,16 +184,21 @@ const Form = (props) => {
               label="About"
               multiline
               rows={17}
-              variant="outlined"
+              variant="filled"
               fullWidth
               margin="dense"
               type="text"
               value={about}
               onChange={(e) => setAbout(e.target.value)}
+              style={{ backgroundColor: "white" }}
             ></TextField>
           </Grid>
         </Grid>
-        <Button type="submit" variant="contained">
+        <Button
+          type="submit"
+          variant="contained"
+          style={{ backgroundColor: "BLACK" }}
+        >
           Add Profile!
         </Button>
       </form>
