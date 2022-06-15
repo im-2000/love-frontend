@@ -22,6 +22,8 @@ export default function ProfileDetails() {
   const details = useSelector(selectProfileDetails);
   const user = useSelector(selectUser);
 
+  console.log("user", user);
+
   //const { userId } = user?.id;
 
   console.log("details??", details);
@@ -100,7 +102,7 @@ export default function ProfileDetails() {
                     sx={{ display: { sm: "block" }, m: 3 }}
                     onClick={() => dispatch(setFavorites(details.id))}
                   >
-                    {user?.favorites?.some((u) => u.id === details.id)
+                    {user?.fav?.some((u) => u.id === details.id)
                       ? "Delete from favorites"
                       : "Add to favorites"}{" "}
                   </Button>
