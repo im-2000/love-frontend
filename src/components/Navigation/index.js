@@ -35,6 +35,12 @@ export default function Navigation() {
               style={{ color: "white", textDecoration: "none" }}
               to={"/"}
             >
+              <h2> Love is Boolean </h2>
+            </NavLink>
+            <NavLink
+              style={{ color: "white", textDecoration: "none" }}
+              to={"/"}
+            >
               <Button color="inherit">Home</Button>
             </NavLink>
             {token && (

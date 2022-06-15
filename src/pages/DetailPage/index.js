@@ -34,10 +34,10 @@ export default function ProfileDetails() {
   return (
     <Box>
       <Breadcrumbs aria-label="breadcrumb" sx={{ m: 3 }}>
-        <Link underline="hover" color="inherit" href="/">
+        <Link underline="hover" color="white" href="/">
           Home
         </Link>
-        <Typography color="text.primary">{details?.name}</Typography>
+        <Typography color="white">{details?.name}</Typography>
       </Breadcrumbs>
       <div>
         <Paper
