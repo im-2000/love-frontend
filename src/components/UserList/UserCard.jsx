@@ -25,7 +25,7 @@ const UserCard = (props) => {
           </Typography>
         </CardContent>
         <CardActions sx={{ display: "flex", justifyContent: "center" }}>
-          <Link to={`/profiles/${id}`}>
+          <Link style={{ textDecoration: "none" }} to={`/profiles/${id}`}>
             <Button size="small" variant="contained">
               Details
             </Button>
