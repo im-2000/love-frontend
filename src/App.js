@@ -38,9 +38,8 @@ function App() {
       className="App"
       style={{
         backgroundImage: `url(${background})`,
-        // backgroundSize: "cover",
-        backgroundRepeat: "repeat",
-        // backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <Navigation />

@@ -24,25 +24,28 @@ export default function Navigation() {
   );
 
   return (
-    <>
+    <div className="navigation">
       <Box>
-        <AppBar position="static">
+        <AppBar position="static" style={{ backgroundColor: "black" }}>
           <Toolbar>
             <Typography variant="h6" mr={3}>
               <img width="40px" src={logo} alt="" />
             </Typography>
+
             <NavLink
               style={{ color: "white", textDecoration: "none" }}
               to={"/"}
             >
               <h2> Love is Boolean </h2>
             </NavLink>
+
             <NavLink
               style={{ color: "white", textDecoration: "none" }}
               to={"/"}
             >
               <Button color="inherit">Home</Button>
             </NavLink>
+
             {token && (
               <NavLink
                 style={{ color: "white", textDecoration: "none" }}
@@ -51,12 +54,13 @@ export default function Navigation() {
                 <Button color="inherit">Profile</Button>
               </NavLink>
             )}
+
             <Box ml="auto" display="flex">
               {loginLogoutControls}
             </Box>
           </Toolbar>
         </AppBar>
-      </Box>
-    </>
+      </Box>{" "}
+    </div>
   );
 }

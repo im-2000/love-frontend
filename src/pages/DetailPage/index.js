@@ -32,7 +32,7 @@ export default function ProfileDetails() {
   }, [dispatch, id]);
 
   return (
-    <Box>
+    <Box className="detailsPage">
       <Breadcrumbs aria-label="breadcrumb" sx={{ m: 3 }}>
         <Link underline="hover" color="white" href="/">
           Home
@@ -50,7 +50,14 @@ export default function ProfileDetails() {
             "Loading"
           ) : (
             <div>
-              <Card sx={{ width: 1000, display: "flex" }}>
+              <Card
+                sx={{
+                  width: 1000,
+                  display: "flex",
+                  backgroundColor: "black",
+                  color: "white",
+                }}
+              >
                 <Grid>
                   <CardMedia
                     component="img"
@@ -65,7 +72,7 @@ export default function ProfileDetails() {
                   <Typography
                     component="h2"
                     variant="h5"
-                    sx={{ mb: 1, fontWeight: "bold", color: "#2196f3" }}
+                    sx={{ mb: 1, fontWeight: "bold", color: "orange" }}
                   >
                     {details.name}
                   </Typography>
@@ -84,22 +91,30 @@ export default function ProfileDetails() {
                     <strong style={{ opacity: 0.7 }}>Language: </strong>
                     {details.language}
                   </p>
-                  <p>
+                  <p style={{ color: "orange" }}>
                     <strong>About me: </strong>
-                    {details.about}
                   </p>
+                  <p>{details.about}</p>
 
                   <Button
                     variant="contained"
                     color="primary"
-                    sx={{ display: { sm: "block" }, m: 3 }}
+                    sx={{
+                      display: { sm: "block" },
+                      m: 3,
+                      backgroundColor: "violet",
+                    }}
                   >
                     Send a Message
                   </Button>
                   <Button
                     variant="contained"
                     color="primary"
-                    sx={{ display: { sm: "block" }, m: 3 }}
+                    sx={{
+                      display: { sm: "block" },
+                      m: 3,
+                      backgroundColor: "violet",
+                    }}
                     onClick={() => dispatch(setFavorites(details.id))}
                   >
                     {user?.fav?.some((u) => u.id === details.id)
