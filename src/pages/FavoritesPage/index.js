@@ -59,6 +59,7 @@ export default function SavedProfiles() {
                         color: "white",
                       }}
                     >
+                 
                       <CardMedia
                         component="img"
                         sx={{
