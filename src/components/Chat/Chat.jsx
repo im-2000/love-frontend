@@ -58,7 +58,7 @@ const Chat = () => {
   console.log("messages", messages);
   return (
     <div className="outerContainer">
-      <div className="container">
+      <div className="chat-container">
         <InfoBar room={room} />
         <Messages messages={messages} user={user} />
         <Input
