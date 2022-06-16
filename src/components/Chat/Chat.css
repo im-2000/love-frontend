@@ -6,7 +6,7 @@
   background-color: #1a1a1d;
 }
 
-.container {
+.chat-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -21,14 +21,14 @@
     height: 100%;
   }
 
-  .container {
+  .chat-container {
     width: 100%;
     height: 100%;
   }
 }
 
 @media (min-width: 480px) and (max-width: 1200px) {
-  .container {
+  .chat-container {
     width: 60%;
   }
 }
