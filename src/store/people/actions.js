@@ -16,10 +16,19 @@ export const getPeople = () => async (dispatch, getState) => {
 };
 
 export const newProfileCreated =
-  ({ name, age, gender, imageUrl, about, language, location }) =>
+  ({ name, age, gender, imageUrl, about, language, location, githubUrl }) =>
   async (dispatch, getState) => {
     try {
-      console.log(name, age, gender, imageUrl, about, language, location);
+      console.log(
+        name,
+        age,
+        gender,
+        imageUrl,
+        about,
+        language,
+        location,
+        githubUrl
+      );
       const { token } = getState().user;
       // dispatch(appLoading());
 
@@ -33,6 +42,7 @@ export const newProfileCreated =
           about,
           language,
           location,
+          githubUrl,
         },
         {
           headers: { Authorization: `Bearer ${token}` },

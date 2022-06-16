@@ -99,6 +99,10 @@ export default function SavedProfiles() {
                           <strong>About me: </strong>
                         </p>
                         <p>{fav.about}</p>
+                        <p>
+                          {" "}
+                          <a href={fav.githubUrl}> GitHub</a>
+                        </p>
                       </CardContent>
                     </Card>
                   </CardActionArea>
