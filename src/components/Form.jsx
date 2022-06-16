@@ -21,6 +21,7 @@ const Form = (props) => {
   const [location, setLocation] = useState("");
   const [imageUrl, setImage] = useState("");
   const [age, setAge] = useState(0);
+  const [githubUrl, setGithubUrl] = useState("");
 
   const submit = (event) => {
     // to make sure that the form does not redirect (which is normal browser behavior)
@@ -33,6 +34,7 @@ const Form = (props) => {
       about,
       language,
       location,
+      githubUrl,
     };
 
     dispatch(newProfileCreated(newProfile));
@@ -43,6 +45,7 @@ const Form = (props) => {
     setImage("");
     setLanguage("");
     setAge(0);
+    setGithubUrl("");
   };
 
   const uploadImage = async (e) => {
@@ -178,6 +181,17 @@ const Form = (props) => {
                 type="text"
                 value={language}
                 onChange={(e) => setLanguage(e.target.value)}
+                style={{ backgroundColor: "white" }}
+              ></TextField>
+              <TextField
+                required
+                label="GitHub"
+                variant="filled"
+                fullWidth
+                margin="dense"
+                type="text"
+                value={githubUrl}
+                onChange={(e) => setGithubUrl(e.target.value)}
                 style={{ backgroundColor: "white" }}
               ></TextField>
             </Grid>

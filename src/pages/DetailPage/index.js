@@ -103,18 +103,21 @@ export default function ProfileDetails() {
                     <strong>About me: </strong>
                   </p>
                   <p>{details.about}</p>
+                  <p>
+                    {" "}
+                    <a href={details.githubUrl}> GitHub</a>
+                  </p>
+                  <Link href="/join">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      sx={{ display: { sm: "block" }, m: 3 }}
+                    >
+                      Start a chat
+                    </Button>
+                  </Link>
 
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    sx={{
-                      display: { sm: "block" },
-                      m: 3,
-                      backgroundColor: "violet",
-                    }}
-                  >
-                    Send a Message
-                  </Button>
+                
                   <Button
                     variant="contained"
                     color="primary"

@@ -51,12 +51,18 @@ const HomePage = () => {
   };
 
   return (
-    <Box p={5}>
-      {people && (
-        <Filters applyFilters={applyFilters} clearFilters={clearFilters} />
-      )}
-      <UserList people={filteredPeople} />
-    </Box>
+    <div className="homePage">
+      <Box p={5}>
+        {people && (
+          <Filters
+            people={people}
+            applyFilters={applyFilters}
+            clearFilters={clearFilters}
+          />
+        )}
+        <UserList people={filteredPeople} />
+      </Box>
+    </div>
   );
 };
 export default HomePage;
