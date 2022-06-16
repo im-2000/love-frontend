@@ -18,6 +18,7 @@ import ProfileDetails from "./pages/DetailPage";
 import ProfilePage from "./pages/ProfilePage";
 import Join from "./components/Join/Join";
 import Chat from "./components/Chat/Chat";
+import SavedProfiles from "./pages/FavoritesPage";
 
 const Home = () => (
   <HeroBanner>
@@ -50,6 +51,7 @@ function App() {
         <Route exact path="/join" element={<Join />} />
         <Route exact path="/chat" element={<Chat />} />
         <Route exact path="/profiles/:id" element={<ProfileDetails />} />
+        <Route exact path="/favorites" element={<SavedProfiles />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />

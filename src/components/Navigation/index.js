@@ -7,6 +7,7 @@ import { selectToken } from "../../store/user/selectors";
 import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
+import Favorites from "./Favorites";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -26,6 +27,7 @@ export default function Navigation() {
     // style={{ marginLeft: "auto" }}
     />
   );
+  const favorites = token ? <Favorites /> : null;
 
   return (
     <div className="navigation">
@@ -62,6 +64,12 @@ export default function Navigation() {
             <Box ml="auto" display="flex">
               {loginLogoutControls}
             </Box>
+            <NavLink
+              style={{ color: "white", textDecoration: "none" }}
+              to={"/favorites"}
+            >
+              <Button color="inherit">{favorites}</Button>
+            </NavLink>
           </Toolbar>
         </AppBar>
       </Box>{" "}
