@@ -126,8 +126,8 @@ export default function ProfileDetails() {
                     onClick={() => dispatch(setFavorites(details.id))}
                   >
                     {user?.fav?.some((u) => u.id === details.id)
-                      ? "Delete from favorites"
-                      : "Add to favorites"}{" "}
+                      ? "FALSE"
+                      : "TRUE"}{" "}
                   </Button>
                 </CardContent>
               </Card>
