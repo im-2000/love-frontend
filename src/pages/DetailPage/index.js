@@ -103,6 +103,10 @@ export default function ProfileDetails() {
                     <strong>About me: </strong>
                   </p>
                   <p>{details.about}</p>
+                  <p>
+                    {" "}
+                    <a href={details.githubUrl}> GitHub</a>
+                  </p>
 
                   <Button
                     variant="contained"
