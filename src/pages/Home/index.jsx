@@ -53,11 +53,7 @@ const HomePage = () => {
   return (
     <Box p={5}>
       {people && (
-        <Filters
-          people={people}
-          applyFilters={applyFilters}
-          clearFilters={clearFilters}
-        />
+        <Filters applyFilters={applyFilters} clearFilters={clearFilters} />
       )}
       <UserList people={filteredPeople} />
     </Box>

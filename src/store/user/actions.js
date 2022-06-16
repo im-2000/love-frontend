@@ -80,7 +80,7 @@ export const login = (email, password) => {
           setMessage({
             variant: "danger",
             dismissable: true,
-            text: error.response.data.message,
+            text: error.response?.data.message,
           })
         );
       }
@@ -157,7 +157,7 @@ export const setFavorites = (profileId) => {
           setMessage({
             variant: "danger",
             dismissable: true,
-            text: error.response.data.message,
+            text: error.response?.data.message,
           })
         );
       } else {
