@@ -37,21 +37,19 @@ export default function Navigation() {
             <Typography variant="h6" mr={3}>
               <img className="logo" width="50px" src={logo} alt="" />
             </Typography>
-
             <NavLink
               style={{ color: "orange", textDecoration: "none" }}
               to={"/"}
             >
               <h2> Love is Boolean </h2>
             </NavLink>
-
+            &nbsp; &nbsp; &nbsp;
             <NavLink
               style={{ color: "white", textDecoration: "none" }}
               to={"/"}
             >
               <Button color="inherit">Home</Button>
             </NavLink>
-
             {token && (
               <NavLink
                 style={{ color: "white", textDecoration: "none" }}
@@ -60,7 +58,6 @@ export default function Navigation() {
                 <Button color="inherit">Profile</Button>
               </NavLink>
             )}
-
             <Box ml="auto" display="flex">
               {loginLogoutControls}
             </Box>
