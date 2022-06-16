@@ -82,14 +82,16 @@ export default function ProfileDetails() {
                     <strong>About me: </strong>
                     {details.about}
                   </p>
+                  <Link href="/join">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      sx={{ display: { sm: "block" }, m: 3 }}
+                    >
+                      Start a chat
+                    </Button>
+                  </Link>
 
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    sx={{ display: { sm: "block" }, m: 3 }}
-                  >
-                    Send a Message
-                  </Button>
                   <Button
                     variant="contained"
                     color="primary"
