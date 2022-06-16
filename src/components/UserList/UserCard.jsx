@@ -6,13 +6,14 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Avatar } from "@mui/material";
 import { Link } from "react-router-dom";
+import background from "../../image/86890.jpeg";
 
 const UserCard = (props) => {
   const { name, imageUrl, id } = props.person;
   return (
     <Box mb={5} ml={3} mr={3}>
-      <Card sx={{ maxWidth: 250 }}>
-        <CardContent sx={{ paddingBottom: 0 }}>
+      <Card sx={{ maxWidth: 250, paddingBottom: 0, backgroundColor: "black" }}>
+        <CardContent>
           <Box display="flex" justifyContent="center">
             <Avatar
               alt={name}
@@ -20,13 +21,29 @@ const UserCard = (props) => {
               sx={{ width: 150, height: 150 }}
             />
           </Box>
-          <Typography gutterBottom variant="h5" component="div" align="center">
+          &nbsp;
+          <Typography
+            style={{ color: "orange" }}
+            gutterBottom
+            variant="h5"
+            component="div"
+            align="center"
+          >
             {name}
           </Typography>
         </CardContent>
-        <CardActions sx={{ display: "flex", justifyContent: "center" }}>
-          <Link to={`/profiles/${id}`}>
-            <Button size="small" variant="contained">
+        <CardActions
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Link style={{ textDecoration: "none" }} to={`/profiles/${id}`}>
+            <Button
+              size="small"
+              variant="contained"
+              style={{ backgroundColor: "violet", color: "black" }}
+            >
               Details
             </Button>
           </Link>

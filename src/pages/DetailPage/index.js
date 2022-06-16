@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { setFavorites } from "../../store/user/actions";
 import { fetchProfileById } from "../../store/profile/actions";
+import { selectUser } from "../../store/user/selectors";
 import {
   getLoading,
   selectProfileDetails,
@@ -12,11 +14,23 @@ import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
 import { Paper, Card, Grid, CardContent, Box } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
+import { selectToken } from "../../store/user/selectors";
+import { useNavigate } from "react-router-dom";
 
 export default function ProfileDetails() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const details = useSelector(selectProfileDetails);
+  const user = useSelector(selectUser);
+
+  const token = useSelector(selectToken);
+  const navigate = useNavigate();
+
+  if (token === null) {
+    navigate("/");
+  }
+
+  console.log("user", user);
 
   //const { userId } = user?.id;
 
@@ -26,12 +40,12 @@ export default function ProfileDetails() {
   }, [dispatch, id]);
 
   return (
-    <Box>
+    <Box className="detailsPage">
       <Breadcrumbs aria-label="breadcrumb" sx={{ m: 3 }}>
-        <Link underline="hover" color="inherit" href="/">
+        <Link underline="hover" color="white" href="/">
           Home
         </Link>
-        <Typography color="text.primary">{details?.name}</Typography>
+        <Typography color="white">{details?.name}</Typography>
       </Breadcrumbs>
       <div>
         <Paper
@@ -44,7 +58,14 @@ export default function ProfileDetails() {
             "Loading"
           ) : (
             <div>
-              <Card sx={{ width: 1000, display: "flex" }}>
+              <Card
+                sx={{
+                  width: 1000,
+                  display: "flex",
+                  backgroundColor: "black",
+                  color: "white",
+                }}
+              >
                 <Grid>
                   <CardMedia
                     component="img"
@@ -59,7 +80,7 @@ export default function ProfileDetails() {
                   <Typography
                     component="h2"
                     variant="h5"
-                    sx={{ mb: 1, fontWeight: "bold", color: "#2196f3" }}
+                    sx={{ mb: 1, fontWeight: "bold", color: "orange" }}
                   >
                     {details.name}
                   </Typography>
@@ -78,9 +99,13 @@ export default function ProfileDetails() {
                     <strong style={{ opacity: 0.7 }}>Language: </strong>
                     {details.language}
                   </p>
-                  <p>
+                  <p style={{ color: "orange" }}>
                     <strong>About me: </strong>
-                    {details.about}
+                  </p>
+                  <p>{details.about}</p>
+                  <p>
+                    {" "}
+                    <a href={details.githubUrl}> GitHub</a>
                   </p>
                   <Link href="/join">
                     <Button
@@ -92,12 +117,20 @@ export default function ProfileDetails() {
                     </Button>
                   </Link>
 
+                
                   <Button
                     variant="contained"
                     color="primary"
-                    sx={{ display: { sm: "block" }, m: 3 }}
+                    sx={{
+                      display: { sm: "block" },
+                      m: 3,
+                      backgroundColor: "violet",
+                    }}
+                    onClick={() => dispatch(setFavorites(details.id))}
                   >
-                    Add to Favorites
+                    {user?.fav?.some((u) => u.id === details.id)
+                      ? "FALSE"
+                      : "TRUE"}{" "}
                   </Button>
                 </CardContent>
               </Card>

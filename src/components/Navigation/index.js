@@ -7,25 +7,72 @@ import { selectToken } from "../../store/user/selectors";
 import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
+import Favorites from "./Favorites";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import logo from "./img/logo1.png";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
 
-  const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
+  const loginLogoutControls = token ? (
+    <LoggedIn
+    // style={{ marginLeft: "auto" }}
+    />
+  ) : (
+    <LoggedOut
+    // style={{ marginLeft: "auto" }}
+    />
+  );
+  const favorites = token ? <Favorites /> : null;
 
   return (
-    <Navbar bg="light" expand="lg">
-      <Navbar.Brand as={NavLink} to="/">
-        YOUR PROJECT NAME
-      </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav style={{ width: "100%" }} fill>
-          <NavbarItem path="/" linkText="Home" />
-          {token ? <NavbarItem path="/profile" linkText="Profile" /> : ""}
-          {loginLogoutControls}
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+    <div className="navigation">
+      <Box>
+        <AppBar position="static" style={{ backgroundColor: "black" }}>
+          <Toolbar>
+            <Typography variant="h6" mr={3}>
+              <img className="logo" width="50px" src={logo} alt="" />
+            </Typography>
+
+            <NavLink
+              style={{ color: "orange", textDecoration: "none" }}
+              to={"/"}
+            >
+              <h2> Love is Boolean </h2>
+            </NavLink>
+
+            <NavLink
+              style={{ color: "white", textDecoration: "none" }}
+              to={"/"}
+            >
+              <Button color="inherit">Home</Button>
+            </NavLink>
+
+            {token && (
+              <NavLink
+                style={{ color: "white", textDecoration: "none" }}
+                to={"/profile"}
+              >
+                <Button color="inherit">Profile</Button>
+              </NavLink>
+            )}
+
+            <Box ml="auto" display="flex">
+              {loginLogoutControls}
+            </Box>
+            <NavLink
+              style={{ color: "white", textDecoration: "none" }}
+              to={"/favorites"}
+            >
+              <Button color="inherit">{favorites}</Button>
+            </NavLink>
+          </Toolbar>
+        </AppBar>
+      </Box>{" "}
+    </div>
   );
 }

@@ -21,6 +21,7 @@ const Form = (props) => {
   const [location, setLocation] = useState("");
   const [imageUrl, setImage] = useState("");
   const [age, setAge] = useState(0);
+  const [githubUrl, setGithubUrl] = useState("");
 
   const submit = (event) => {
     // to make sure that the form does not redirect (which is normal browser behavior)
@@ -33,6 +34,7 @@ const Form = (props) => {
       about,
       language,
       location,
+      githubUrl,
     };
 
     dispatch(newProfileCreated(newProfile));
@@ -43,6 +45,7 @@ const Form = (props) => {
     setImage("");
     setLanguage("");
     setAge(0);
+    setGithubUrl("");
   };
 
   const uploadImage = async (e) => {
@@ -67,132 +70,158 @@ const Form = (props) => {
   };
 
   return (
-    <Grid sx={{ width: "100%", padding: "70px 15px" }}>
-      {/* addform */}
+    <div className="profile">
+      <Grid sx={{ width: "100%", padding: "70px 15px" }}>
+        {/* addform */}
 
-      <form onSubmit={submit} noValidate autoComplete="off">
-        <Grid container spacing={6} sx={{}}>
-          <Grid item xs={3}>
-            <div>
-              <img
-                alt="img"
-                src={
-                  imageUrl
-                    ? imageUrl
-                    : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
-                }
-                style={{ maxWidth: 315 }}
-              />
-              {imageUrl ? (
-                <div style={{ fontSize: 20 }}>Succesfully uploaded!</div>
-              ) : (
-                ""
-              )}
-            </div>
-            <TextField
-              required
-              label="Image"
-              type="file"
-              variant="outlined"
-              fullWidth
-              margin="dense"
-              onChange={uploadImage}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            ></TextField>
-          </Grid>
-          <Grid
-            item
-            xs={3}
-            sx={{ display: "flex", flexDirection: "column", gap: 3 }}
-          >
-            <TextField
-              required
-              label="Name"
-              type="text"
-              variant="outlined"
-              fullWidth
-              margin="dense"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            ></TextField>
-
-            <TextField
-              required
-              label="Location"
-              variant="outlined"
-              fullWidth
-              margin="dense"
-              type="text"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-            ></TextField>
-            <TextField
-              required
-              label="Gender"
-              variant="outlined"
-              value={gender}
-              onChange={(e) => {
-                setGender(e.target.value);
-              }}
-              select
-              fullWidth
-              margin="dense"
-              InputLabelProps={{
-                shrink: true,
-              }}
+        <form onSubmit={submit} noValidate autoComplete="off">
+          <Grid container spacing={6} sx={{}}>
+            <Grid item xs={3}>
+              <div>
+                <img
+                  alt="img"
+                  src={
+                    imageUrl
+                      ? imageUrl
+                      : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
+                  }
+                  style={{ maxWidth: 315 }}
+                />
+                {imageUrl ? (
+                  <div style={{ fontSize: 20, color: "white" }}>
+                    Succesfully uploaded!
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+              <TextField
+                required
+                label="Image"
+                type="file"
+                variant="filled"
+                fullWidth
+                margin="dense"
+                onChange={uploadImage}
+                // style={{ backgroundColor: "white" }}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              ></TextField>
+            </Grid>
+            <Grid
+              item
+              xs={3}
+              sx={{ display: "flex", flexDirection: "column", gap: 3 }}
             >
-              {genders.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
+              <TextField
+                required
+                label="Name"
+                type="text"
+                variant="filled"
+                fullWidth
+                margin="dense"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                style={{ backgroundColor: "white" }}
+              ></TextField>
 
-            <TextField
-              required
-              label="Age"
-              variant="outlined"
-              fullWidth
-              margin="dense"
-              type="number"
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
-            ></TextField>
+              <TextField
+                required
+                label="Location"
+                variant="filled"
+                fullWidth
+                margin="dense"
+                type="text"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                style={{ backgroundColor: "white" }}
+              ></TextField>
+              <TextField
+                required
+                label="Gender"
+                variant="filled"
+                value={gender}
+                onChange={(e) => {
+                  setGender(e.target.value);
+                }}
+                style={{ backgroundColor: "white" }}
+                select
+                fullWidth
+                margin="dense"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              >
+                {genders.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
 
-            <TextField
-              required
-              label="Language"
-              variant="outlined"
-              fullWidth
-              margin="dense"
-              type="text"
-              value={language}
-              onChange={(e) => setLanguage(e.target.value)}
-            ></TextField>
+              <TextField
+                required
+                label="Age"
+                variant="filled"
+                fullWidth
+                margin="dense"
+                type="number"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+                style={{ backgroundColor: "white" }}
+              ></TextField>
+
+              <TextField
+                required
+                label="Language"
+                variant="filled"
+                fullWidth
+                margin="dense"
+                type="text"
+                value={language}
+                onChange={(e) => setLanguage(e.target.value)}
+                style={{ backgroundColor: "white" }}
+              ></TextField>
+              <TextField
+                required
+                label="GitHub"
+                variant="filled"
+                fullWidth
+                margin="dense"
+                type="text"
+                value={githubUrl}
+                onChange={(e) => setGithubUrl(e.target.value)}
+                style={{ backgroundColor: "white" }}
+              ></TextField>
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                sx={{ paddingBottom: 7 }}
+                required
+                label="About"
+                multiline
+                rows={17}
+                variant="filled"
+                fullWidth
+                margin="dense"
+                type="text"
+                value={about}
+                onChange={(e) => setAbout(e.target.value)}
+                style={{ backgroundColor: "white" }}
+              ></TextField>
+            </Grid>
           </Grid>
-          <Grid item xs={6}>
-            <TextField
-              sx={{ paddingBottom: 7 }}
-              required
-              label="About"
-              multiline
-              rows={17}
-              variant="outlined"
-              fullWidth
-              margin="dense"
-              type="text"
-              value={about}
-              onChange={(e) => setAbout(e.target.value)}
-            ></TextField>
-          </Grid>
-        </Grid>
-        <Button type="submit" variant="contained">
-          Add Profile!
-        </Button>
-      </form>
-    </Grid>
+          <Button
+            type="submit"
+            variant="contained"
+            style={{ backgroundColor: "BLACK" }}
+          >
+            Add Profile!
+          </Button>
+        </form>
+      </Grid>
+    </div>
   );
 };
 export default Form;

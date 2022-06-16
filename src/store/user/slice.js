@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const initialState = {
   token: localStorage.getItem("token"),
@@ -22,9 +22,21 @@ export const userSlice = createSlice({
     tokenStillValid: (state, action) => {
       state.profile = action.payload.user;
     },
+    toggleFavorites: (state, action) => {
+      const idToAdd = action.payload;
+
+      const convertFavorites = state.profile.fav.map((item) => item.id);
+
+      const newFavs = convertFavorites.includes(idToAdd.id)
+        ? state.profile.fav.filter((item) => item.id !== idToAdd.id)
+        : [...state.profile.fav, idToAdd];
+
+      state.profile.fav = newFavs;
+    },
   },
 });
 
-export const { loginSuccess, logOut, tokenStillValid } = userSlice.actions;
+export const { loginSuccess, logOut, tokenStillValid, toggleFavorites } =
+  userSlice.actions;
 
 export default userSlice.reducer;

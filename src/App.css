@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Gloria+Hallelujah&family=Inspiration&family=Jua&family=Open+Sans:wght@300&family=PT+Sans&family=Palette+Mosaic&family=Permanent+Marker&family=Potta+One&family=Rubik:wght@300&display=swap");
+
+.login {
+  width: 100%;
+  height: 800px;
+}
+
+.signup {
+  width: 100%;
+  height: 800px;
+}
+
+.profile {
+  width: 100%;
+  height: 800px;
+}
+
+.detailsPage {
+  width: 100%;
+  height: 800px;
+}
+
+.favorites {
+  width: 100%;
+  height: 800px;
+}
+
+.navigation {
+  font-family: "Potta One", cursive;
+}
+
+.logo {
+  filter: brightness(200%);
+}
