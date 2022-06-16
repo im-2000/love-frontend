@@ -14,6 +14,7 @@ import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
 import { Paper, Card, Grid, CardContent, Box } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
+import { selectToken } from "../../store/user/selectors";
 import { useNavigate } from "react-router-dom";
 
 export default function ProfileDetails() {
@@ -21,6 +22,13 @@ export default function ProfileDetails() {
   const dispatch = useDispatch();
   const details = useSelector(selectProfileDetails);
   const user = useSelector(selectUser);
+
+  const token = useSelector(selectToken);
+  const navigate = useNavigate();
+
+  if (token === null) {
+    navigate("/");
+  }
 
   console.log("user", user);
 

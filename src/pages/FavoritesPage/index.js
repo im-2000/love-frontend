@@ -26,7 +26,12 @@ export default function SavedProfiles() {
   return (
     <div>
       <Breadcrumbs aria-label="breadcrumb" sx={{ m: 3 }}>
-        <Link underline="hover" color="inherit" href="/">
+        <Link
+          underline="hover"
+          color="inherit"
+          href="/"
+          style={{ color: "black", fontSize: 25 }}
+        >
           Home
         </Link>
       </Breadcrumbs>
@@ -47,7 +52,13 @@ export default function SavedProfiles() {
                   style={{ margin: "auto" }}
                 >
                   <CardActionArea component="a">
-                    <Card sx={{ display: "flex" }}>
+                    <Card
+                      sx={{
+                        display: "flex",
+                        backgroundColor: "black",
+                        color: "white",
+                      }}
+                    >
                       <CardMedia
                         component="img"
                         sx={{
