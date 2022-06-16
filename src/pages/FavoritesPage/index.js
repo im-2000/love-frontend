@@ -24,18 +24,18 @@ export default function SavedProfiles() {
   }, [dispatch]);*/
 
   return (
-    <div>
+    <div className="favorites">
       <Breadcrumbs aria-label="breadcrumb" sx={{ m: 3 }}>
         <Link
           underline="hover"
           color="inherit"
           href="/"
-          style={{ color: "black", fontSize: 25 }}
+          style={{ color: "red", fontSize: 25 }}
         >
           Home
         </Link>
       </Breadcrumbs>
-      <Typography variant="h4" sx={{ fontSize: "2rem" }}>
+      <Typography variant="h4" sx={{ fontSize: "2rem", color: "red" }}>
         Favorites
       </Typography>
       {user.fav
@@ -59,7 +59,6 @@ export default function SavedProfiles() {
                         color: "white",
                       }}
                     >
-                 
                       <CardMedia
                         component="img"
                         sx={{
