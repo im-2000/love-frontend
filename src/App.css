@@ -23,3 +23,7 @@
 .navigation {
   font-family: "Potta One", cursive;
 }
+
+.logo {
+  filter: brightness(200%);
+}
