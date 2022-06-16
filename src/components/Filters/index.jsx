@@ -81,7 +81,7 @@ const Filters = (props) => {
         }}
         size="small"
         variant="contained"
-        style={{ backgroundColor: "black" }}
+        style={{ backgroundColor: "green" }}
       >
         Apply
       </Button>
@@ -91,7 +91,7 @@ const Filters = (props) => {
         }}
         size="small"
         variant="contained"
-        style={{ backgroundColor: "black" }}
+        style={{ backgroundColor: "red" }}
       >
         Clear
       </Button>

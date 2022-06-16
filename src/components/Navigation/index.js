@@ -18,9 +18,13 @@ export default function Navigation() {
   const token = useSelector(selectToken);
 
   const loginLogoutControls = token ? (
-    <LoggedIn style={{ marginLeft: "auto" }} />
+    <LoggedIn
+    // style={{ marginLeft: "auto" }}
+    />
   ) : (
-    <LoggedOut style={{ marginLeft: "auto" }} />
+    <LoggedOut
+    // style={{ marginLeft: "auto" }}
+    />
   );
 
   return (
@@ -29,11 +33,11 @@ export default function Navigation() {
         <AppBar position="static" style={{ backgroundColor: "black" }}>
           <Toolbar>
             <Typography variant="h6" mr={3}>
-              <img width="40px" src={logo} alt="" />
+              <img className="logo" width="50px" src={logo} alt="" />
             </Typography>
 
             <NavLink
-              style={{ color: "white", textDecoration: "none" }}
+              style={{ color: "orange", textDecoration: "none" }}
               to={"/"}
             >
               <h2> Love is Boolean </h2>
