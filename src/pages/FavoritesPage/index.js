@@ -46,7 +46,7 @@ export default function SavedProfiles() {
                   variant="outlined"
                   style={{ margin: "auto" }}
                 >
-                  <CardActionArea component="a">
+                  <CardActionArea component="a" href={`/profiles/${fav.id}`}>
                     <Card sx={{ display: "flex" }}>
                       <CardMedia
                         component="img"
